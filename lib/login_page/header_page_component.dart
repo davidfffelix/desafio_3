@@ -1,10 +1,17 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import '../responsivity.dart';
 
-class HeaderLoginPageComponent extends StatelessWidget {
-  const HeaderLoginPageComponent({super.key});
+class HeaderPageComponent extends StatelessWidget {
+  const HeaderPageComponent({
+    Key? key,
+    required this.firstRow,
+    required this.secondRow,
+    required this.thirdRow,
+  }) : super(key: key);
+
+  final String firstRow;
+  final String secondRow;
+  final String thirdRow;
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +29,17 @@ class HeaderLoginPageComponent extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('😎 Setting up your'),
+              Text(firstRow),
               SizedBox(
                 height: Responsivity.automatic(10, mediaQueryData),
               ),
-              const Text('profile'),
+              Text(secondRow),
               SizedBox(
                 height: Responsivity.automatic(24, mediaQueryData),
               ),
-              const Text(
-                'Add your profile photo',
-                style: TextStyle(
+              Text(
+                thirdRow,
+                style: const TextStyle(
                   color: Color(0xffDADBDB),
                 ),
               ),

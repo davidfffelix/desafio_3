@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/app_bar_component.dart';
 import '../components/body_home_page_component.dart';
-import 'header_home_page_component.dart';
+import '../login_page/header_page_component.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,7 +29,11 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            HeaderHomePageComponent(),
+            HeaderPageComponent(
+              firstRow: '👋 Hello,',
+              secondRow: 'Are you new there?',
+              thirdRow: 'if you have an account / ',
+            ),
             BodyHomePageComponent(),
           ],
         ),

@@ -22,36 +22,40 @@ class HeaderHomePageComponent extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('👋 Hello,'),
+              // const Text('👋 Hello,'),
               SizedBox(
                 height: Responsivity.automatic(10, mediaQueryData),
               ),
-              const Text('Are you new there?'),
+              // const Text('Are you new there?'),
               SizedBox(
                 height: Responsivity.automatic(24, mediaQueryData),
               ),
-              Row(), // TODO: Correção do TextSpan e uma linha com Ewerton
-              Text.rich(
-                TextSpan(
-                  children: [
-                    const TextSpan(text: 'if you have an account / '),
+              Row(
+                // TODO: Verificar fazer TextSpan com Ewerton
+                children: [
+                  Text.rich(
                     TextSpan(
-                      text: 'Login',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => const LoginPage(),
-                            ),
-                          );
-                        },
+                      children: [
+                        const TextSpan(text: 'if you have an account / '),
+                        TextSpan(
+                          text: 'Login',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const LoginPage(),
+                                ),
+                              );
+                            },
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                ],
+              ), // TODO: Correção do TextSpan e uma linha com Ewerton
             ],
           ),
         ),
