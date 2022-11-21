@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import '../responsivity.dart';
 
-class AppBarHomePageComponent extends StatelessWidget
-    implements PreferredSizeWidget {
+class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
   final Color appBarColor;
   final Widget leading;
 
-  const AppBarHomePageComponent({
+  const AppBarComponent({
     Key? key,
     required this.appBarColor,
     required this.leading,

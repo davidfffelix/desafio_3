@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_bar_component.dart';
+import '../components/app_bar_component.dart';
 import '../home/home_page.dart';
 import 'body_login_page.component.dart';
 import 'header_login_page_component.dart';
@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffFAFBFB),
-        appBar: AppBarLoginPageComponent(
+        appBar: AppBarComponent(
           appBarColor: Colors.white,
           leading: GestureDetector(
             child: const Icon(
