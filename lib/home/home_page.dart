@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/app_bar_component.dart';
+import '../components/pages_app_bar_widget.dart';
 import '../components/body_home_page_component.dart';
 import '../login_page/header_page_component.dart';
 
@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFAFBFB),
-      appBar: AppBarComponent(
+      appBar: PagesAppBarWidget(
         appBarColor: Colors.white,
         leading: GestureDetector(
           child: const Icon(
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
             HeaderPageComponent(
               firstRow: '👋 Hello,',
               secondRow: 'Are you new there?',
-              thirdRow: 'if you have an account / ',
+              thirdRow: 'if you have an account / Login',
             ),
             BodyHomePageComponent(),
           ],
