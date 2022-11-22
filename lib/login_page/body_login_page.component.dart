@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/confirm_button_widget.dart';
 import '../home/home_page.dart';
 import '../responsivity.dart';
 
@@ -196,6 +197,10 @@ class BodyLoginPageComponent extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          ConfirmButtonWidget(
+            onPressed: () {},
+            titleButton: 'Confirm',
           ),
         ],
       ),

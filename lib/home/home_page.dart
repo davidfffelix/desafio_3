@@ -1,9 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../components/pages_app_bar_widget.dart';
+import '../components/app_bar_widget.dart';
 import '../components/body_home_page_component.dart';
-import '../components/header_page_component.dart';
-import '../login_page/login_page.dart';
+import '../components/header_page_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
