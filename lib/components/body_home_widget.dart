@@ -41,8 +41,8 @@ class BodyHomeWidget extends StatelessWidget {
           const CustomTextWidget(
             title: 'Full Name',
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: Responsivity.automatic(20, mediaQueryData),
           ),
           const TextFieldWidget(
             prefixIcon: Icons.person,

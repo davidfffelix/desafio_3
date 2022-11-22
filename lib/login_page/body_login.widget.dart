@@ -36,23 +36,31 @@ class BodyLoginWidget extends StatelessWidget {
             children: [
               Container(
                 alignment: Alignment.bottomRight,
-                height: 100,
-                width: 100,
-                decoration: const BoxDecoration(
+                height: Responsivity.automatic(100, mediaQueryData),
+                width: Responsivity.automatic(100, mediaQueryData),
+                decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
+                    topLeft: Radius.circular(
+                      Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    topRight: Radius.circular(
+                      Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    bottomLeft: Radius.circular(
+                      Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    bottomRight: Radius.circular(
+                      Responsivity.automatic(20, mediaQueryData),
+                    ),
                   ),
                 ),
                 child: Stack(
                   children: [
                     Positioned(
                       child: Container(
-                        height: 30,
-                        width: 30,
+                        height: Responsivity.automatic(30, mediaQueryData),
+                        width: Responsivity.automatic(30, mediaQueryData),
                         decoration: const BoxDecoration(
                           color: Color(0xff928AE2),
                           shape: BoxShape.circle,
