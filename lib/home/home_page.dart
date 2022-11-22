@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../components/app_bar_widget.dart';
-import '../components/body_home_page_component.dart';
-import '../components/header_page_widget.dart';
+import '../components/body_home_widget.dart';
+import '../components/header_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFAFBFB),
-      appBar: PagesAppBarWidget(
+      appBar: AppBarWidget(
         appBarColor: const Color(0xffFAFBFB),
         leading: GestureDetector(
           child: const Icon(
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeaderPageComponent(
+            HeaderWidget(
               firstRow: '👋 Hello,',
               secondRow: 'Are you new there?',
               thirdRow: Row(
@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            BodyHomePageComponent(),
+            const BodyHomeWidget(),
           ],
         ),
       ),

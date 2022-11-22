@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../responsivity.dart';
 
-class HeaderPageComponent extends StatelessWidget {
-  const HeaderPageComponent({
+class HeaderWidget extends StatelessWidget {
+  const HeaderWidget({
     Key? key,
     required this.firstRow,
     required this.secondRow,

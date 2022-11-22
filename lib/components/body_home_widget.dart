@@ -4,8 +4,8 @@ import 'confirm_button_widget.dart';
 import 'custom_text_widget.dart';
 import 'text_field_widget.dart';
 
-class BodyHomePageComponent extends StatelessWidget {
-  const BodyHomePageComponent({
+class BodyHomeWidget extends StatelessWidget {
+  const BodyHomeWidget({
     Key? key,
     this.prefixIcon,
     this.suffixIcon,

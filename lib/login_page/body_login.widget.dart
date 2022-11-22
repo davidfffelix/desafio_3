@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import '../components/confirm_button_widget.dart';
+import '../components/custom_text_widget.dart';
 import '../home/home_page.dart';
 import '../responsivity.dart';
 
-class BodyLoginPageComponent extends StatelessWidget {
-  const BodyLoginPageComponent({super.key});
+class BodyLoginWidget extends StatelessWidget {
+  const BodyLoginWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +91,12 @@ class BodyLoginPageComponent extends StatelessWidget {
               ),
             ],
           ),
-          const Text('Display Name'),
+          const CustomTextWidget(
+            title: 'Display Name',
+          ),
+          SizedBox(
+            height: Responsivity.automatic(20, mediaQueryData),
+          ),
           Padding(
             padding: EdgeInsets.only(
               top: Responsivity.automatic(20, mediaQueryData),
