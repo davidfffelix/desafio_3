@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../components/app_bar_widget.dart';
 import '../components/body_home_widget.dart';
 import '../components/header_widget.dart';
+import '../login_page/login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -53,7 +54,7 @@ class HomePage extends StatelessWidget {
                             ..onTap = () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
+                                  builder: (context) => const LoginPage(),
                                 ),
                               );
                             },
