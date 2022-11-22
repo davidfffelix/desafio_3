@@ -1,8 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import '../responsivity.dart';
 import 'confirm_button_widget.dart';
+import 'custom_text_widget.dart';
+import 'text_field_widget.dart';
 
 class BodyHomePageComponent extends StatelessWidget {
   const BodyHomePageComponent({
@@ -18,103 +18,69 @@ class BodyHomePageComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const Text('Full Name'),
-        Padding(
-          padding: EdgeInsets.only(
-            top: Responsivity.automatic(20, mediaQueryData),
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: Responsivity.automatic(20, mediaQueryData),
+        vertical: Responsivity.automatic(30, mediaQueryData),
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(
+            Responsivity.automatic(30, mediaQueryData),
           ),
-          child: TextField(
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: Responsivity.automatic(2, mediaQueryData),
-                  color: const Color(0xffF1EFFF),
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    Responsivity.automatic(12, mediaQueryData),
-                  ),
-                ),
-              ),
-              prefixIcon: Icon(
-                prefixIcon,
-                color: const Color(0xffC0BAEF),
-              ),
-            ),
+          topRight: Radius.circular(
+            Responsivity.automatic(30, mediaQueryData),
           ),
         ),
-        SizedBox(
-          height: Responsivity.automatic(28, mediaQueryData),
-        ),
-        const Text(
-          'E-mail',
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: Responsivity.automatic(20, mediaQueryData),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const CustomTextWidget(
+            title: 'Full Name',
           ),
-          child: TextField(
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: Responsivity.automatic(2, mediaQueryData),
-                  color: const Color(0xffF1EFFF),
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    Responsivity.automatic(12, mediaQueryData),
-                  ),
-                ),
-              ),
-              prefixIcon: const Icon(
-                Icons.mail,
-                color: Color(0xffC0BAEF),
-              ),
-            ),
+          const SizedBox(
+            height: 20,
           ),
-        ),
-        SizedBox(
-          height: Responsivity.automatic(28, mediaQueryData),
-        ),
-        const Text('Password'),
-        Padding(
-          padding: EdgeInsets.only(
-            top: Responsivity.automatic(20, mediaQueryData),
-            bottom: Responsivity.automatic(80, mediaQueryData),
+          const TextFieldWidget(
+            prefixIcon: Icons.person,
           ),
-          child: TextField(
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  width: 2,
-                  color: Color(0xffF1EFFF),
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    Responsivity.automatic(12, mediaQueryData),
-                  ),
-                ),
-              ),
-              prefixIcon: const Icon(
-                Icons.lock,
-                color: Color(0xffC0BAEF),
-              ),
-              suffixIcon: const Icon(
-                Icons.visibility,
-                color: Color(0xffC0BAEF),
-              ),
-            ),
-            obscureText: true,
+          SizedBox(
+            height: Responsivity.automatic(28, mediaQueryData),
           ),
-        ),
-        ConfirmButtonWidget(
-          onPressed: () {},
-          titleButton: 'Sign Up',
-        ),
-      ],
+          const CustomTextWidget(
+            title: 'E-mail',
+          ),
+          SizedBox(
+            height: Responsivity.automatic(20, mediaQueryData),
+          ),
+          const TextFieldWidget(
+            prefixIcon: Icons.email,
+          ),
+          SizedBox(
+            height: Responsivity.automatic(28, mediaQueryData),
+          ),
+          const CustomTextWidget(
+            title: 'Password',
+          ),
+          SizedBox(
+            height: Responsivity.automatic(20, mediaQueryData),
+          ),
+          const TextFieldWidget(
+            prefixIcon: Icons.lock,
+            suffixIcon: Icons.visibility,
+          ),
+          SizedBox(
+            height: Responsivity.automatic(90, mediaQueryData),
+          ),
+          ConfirmButtonWidget(
+            onPressed: () {},
+            titleButton: 'Sign Up',
+          ),
+        ],
+      ),
     );
   }
 }
