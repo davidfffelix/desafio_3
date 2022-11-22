@@ -11,7 +11,7 @@ class HeaderPageComponent extends StatelessWidget {
 
   final String firstRow;
   final String secondRow;
-  final String thirdRow;
+  final Widget thirdRow;
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +37,7 @@ class HeaderPageComponent extends StatelessWidget {
               SizedBox(
                 height: Responsivity.automatic(24, mediaQueryData),
               ),
-              Text(
-                thirdRow,
-                style: const TextStyle(
-                  color: Color(0xffDADBDB),
-                ),
-              ),
+              thirdRow,
             ],
           ),
         ),

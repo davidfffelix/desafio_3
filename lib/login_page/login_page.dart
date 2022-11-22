@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/pages_app_bar_widget.dart';
 import '../home/home_page.dart';
 import 'body_login_page.component.dart';
-import 'header_page_component.dart';
+import '../components/header_page_component.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -13,7 +13,7 @@ class LoginPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: const Color(0xffFAFBFB),
         appBar: PagesAppBarWidget(
-          appBarColor: Colors.white,
+          appBarColor: const Color(0xffFAFBFB),
           leading: GestureDetector(
             child: const Icon(
               Icons.arrow_back,
@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
               HeaderPageComponent(
                 firstRow: '😎 Setting up your',
                 secondRow: 'profile',
-                thirdRow: 'Add your profile photo',
+                thirdRow: Text('Add your profile photo'),
               ),
               BodyLoginPageComponent(),
             ],
