@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../components/pages_app_bar_widget.dart';
 import '../components/body_home_page_component.dart';
@@ -41,21 +42,25 @@ class HomePage extends StatelessWidget {
                       color: Color(0xffD5D4D5),
                     ),
                   ),
-                  TextButton(
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(
-                        color: Color(0xffD5D4D5),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: ' Login',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const HomePage(),
+                                ),
+                              );
+                            },
                         ),
-                      );
-                    },
+                      ],
+                    ),
                   ),
                 ],
               ),

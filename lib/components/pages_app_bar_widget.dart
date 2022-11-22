@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../responsivity.dart';
-
 class PagesAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final Color appBarColor;
   final Widget leading;
