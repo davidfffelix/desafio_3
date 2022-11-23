@@ -39,7 +39,9 @@ class BodyLoginWidget extends StatelessWidget {
                 height: Responsivity.automatic(100, mediaQueryData),
                 width: Responsivity.automatic(100, mediaQueryData),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/porsche.png'),
+                  ),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(
                       Responsivity.automatic(20, mediaQueryData),
@@ -74,7 +76,9 @@ class BodyLoginWidget extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const HomePage(),
+                                // builder: (context) => const HomePage(),
+                                builder: (context) => const pickImage(),
+
                               ),
                             );
                           },
