@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import '../profile_page/profile_page.dart';
 import '../responsivity.dart';
 import 'confirm_button_widget.dart';
 import 'custom_text_widget.dart';
 import 'text_field_widget.dart';
 
-class BodyHomeWidget extends StatelessWidget {
-  const BodyHomeWidget({
+class BodyRegisterWidget extends StatelessWidget {
+  const BodyRegisterWidget({
     Key? key,
     this.prefixIcon,
     this.suffixIcon,
@@ -76,7 +77,14 @@ class BodyHomeWidget extends StatelessWidget {
             height: Responsivity.automatic(90, mediaQueryData),
           ),
           ConfirmButtonWidget(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfilePage(),
+                ),
+              );
+            },
             titleButton: 'Sign Up',
           ),
         ],

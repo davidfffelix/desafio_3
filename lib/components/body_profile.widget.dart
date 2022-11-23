@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../components/confirm_button_widget.dart';
-import '../components/custom_text_widget.dart';
-import '../components/text_field_widget.dart';
+import 'confirm_button_widget.dart';
+import 'custom_text_widget.dart';
+import 'text_field_widget.dart';
+import '../home/register_page.dart';
 import '../responsivity.dart';
-import 'image_pick_widget.dart';
+import '../profile_page/image_pick_widget.dart';
 
 class BodyProfileWidget extends StatelessWidget {
   const BodyProfileWidget({super.key});
@@ -77,7 +78,14 @@ class BodyProfileWidget extends StatelessWidget {
             height: Responsivity.automatic(90, mediaQueryData),
           ),
           ConfirmButtonWidget(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RegisterPage(),
+                ),
+              );
+            },
             titleButton: 'Confirm',
           ),
         ],

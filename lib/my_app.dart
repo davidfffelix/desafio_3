@@ -1,5 +1,6 @@
+import 'package:desafio_3/login/login_page.dart';
 import 'package:flutter/material.dart';
-import 'home/home_page.dart';
+import 'home/register_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: RegisterPage(),
     );
   }
 }

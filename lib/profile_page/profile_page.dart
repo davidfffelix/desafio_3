@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../components/app_bar_widget.dart';
-import '../home/home_page.dart';
-import 'body_profile.widget.dart';
+import '../home/register_page.dart';
+import '../components/body_profile.widget.dart';
 import '../components/header_widget.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const HomePage(),
+                  builder: (context) => const RegisterPage(),
                 ),
               );
             },
@@ -41,7 +41,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              BodyProfileWidget(),
+              BodyProfileWidget(
+                
+              ),
             ],
           ),
         ),

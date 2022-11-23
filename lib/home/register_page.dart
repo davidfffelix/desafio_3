@@ -1,12 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../components/app_bar_widget.dart';
-import '../components/body_home_widget.dart';
+import '../components/body_register_widget.dart';
 import '../components/header_widget.dart';
-import '../profile_page/profile_page.dart';
+import '../login/login_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const HomePage(),
+                  builder: (context) => const RegisterPage(),
                 ),
               );
             },
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              const BodyHomeWidget(),
+              const BodyRegisterWidget(),
             ],
           ),
         ),
