@@ -32,9 +32,14 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               HeaderWidget(
-                firstRow: '😎 Setting up your',
-                secondRow: 'profile',
-                thirdRow: Text('Add your profile photo'),
+                firstRow: '😎 Setting up your \nprofile',
+                // secondRow: 'profile',
+                secondRow: Text(
+                  'Add your profile photo',
+                  style: TextStyle(
+                    color: Color(0xffD5D4D5),
+                  ),
+                ),
               ),
               BodyLoginWidget(),
             ],

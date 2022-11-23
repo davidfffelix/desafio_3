@@ -6,12 +6,10 @@ class HeaderWidget extends StatelessWidget {
     Key? key,
     required this.firstRow,
     required this.secondRow,
-    required this.thirdRow,
   }) : super(key: key);
 
   final String firstRow;
-  final String secondRow;
-  final Widget thirdRow;
+  final Widget secondRow;
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +27,17 @@ class HeaderWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(firstRow),
+              Text(
+                firstRow,
+              ),
               SizedBox(
                 height: Responsivity.automatic(10, mediaQueryData),
               ),
-              Text(secondRow),
+              // Text(secondRow),
               SizedBox(
                 height: Responsivity.automatic(24, mediaQueryData),
               ),
-              thirdRow,
+              secondRow,
             ],
           ),
         ),
