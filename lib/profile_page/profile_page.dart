@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/app_bar_widget.dart';
 import '../home/home_page.dart';
-import 'body_login.widget.dart';
+import 'body_profile.widget.dart';
 import '../components/header_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              BodyLoginWidget(),
+              BodyProfileWidget(),
             ],
           ),
         ),

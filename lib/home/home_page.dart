@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../components/app_bar_widget.dart';
 import '../components/body_home_widget.dart';
 import '../components/header_widget.dart';
-import '../login_page/login_page.dart';
+import '../profile_page/profile_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
