@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../components/confirm_button_widget.dart';
 import '../components/custom_text_widget.dart';
 import '../components/default_padding_widget.dart';
+import '../components/image_login_widget.dart';
 import '../components/text_field_widget.dart';
+import '../home/register_page.dart';
 import '../responsivity.dart';
 
 class LoginPage extends StatelessWidget {
@@ -18,10 +21,11 @@ class LoginPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: DefaultPaddingWidget(
             body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset('assets/images/porsche.png'),
+                const ImageLoginWidget(),
                 SizedBox(
-                  height: Responsivity.automatic(40, mediaQueryData),
+                  height: Responsivity.automatic(30, mediaQueryData),
                 ),
                 const CustomTextWidget(title: 'E-mail or Name'),
                 SizedBox(
@@ -44,11 +48,8 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: Responsivity.automatic(40, mediaQueryData),
                 ),
-                const CustomTextWidget(
-                  title: 'Register',
-                ),
                 SizedBox(
-                  height: Responsivity.automatic(90, mediaQueryData),
+                  height: Responsivity.automatic(30, mediaQueryData),
                 ),
                 ConfirmButtonWidget(
                   onPressed: () {
@@ -60,6 +61,35 @@ class LoginPage extends StatelessWidget {
                     );
                   },
                   titleButton: 'Sign In',
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(
+                    20,
+                  ),
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        const TextSpan(
+                          text: "Don't have an account yet? - ",
+                        ),
+                        TextSpan(
+                          text: 'Register',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const RegisterPage(),
+                                ),
+                              );
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

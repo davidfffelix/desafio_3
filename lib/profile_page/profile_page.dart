@@ -40,7 +40,6 @@ class ProfilePage extends StatelessWidget {
             children: [
               const HeaderWidget(
                 firstRow: '😎 Setting up your \nprofile',
-                // secondRow: 'profile',
                 secondRow: Text(
                   'Add your profile photo',
                   style: TextStyle(

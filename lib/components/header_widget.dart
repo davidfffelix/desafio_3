@@ -31,10 +31,6 @@ class HeaderWidget extends StatelessWidget {
                 firstRow,
               ),
               SizedBox(
-                height: Responsivity.automatic(10, mediaQueryData),
-              ),
-              // Text(secondRow),
-              SizedBox(
                 height: Responsivity.automatic(24, mediaQueryData),
               ),
               secondRow,
