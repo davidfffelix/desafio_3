@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../components/app_bar_widget.dart';
 import '../components/confirm_button_widget.dart';
-import '../components/custom_text_widget.dart';
 import '../components/default_padding_widget.dart';
+import '../components/custom_text_widget.dart';
 import '../components/text_field_widget.dart';
 import '../home/register_page.dart';
 import '../components/header_widget.dart';
@@ -35,83 +35,86 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-            horizontal: Responsivity.automatic(20, mediaQueryData), // Dos lados
-            vertical:
-                Responsivity.automatic(30, mediaQueryData), // Cima e baixo
-          ),
-          child: DefaultPaddingWidget(
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const HeaderWidget(
-                  firstRow: '😎 Setting up your \nprofile',
-                  // secondRow: 'profile',
-                  secondRow: Text(
-                    'Add your profile photo',
-                    style: TextStyle(
-                      color: Color(0xffD5D4D5),
-                    ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const HeaderWidget(
+                firstRow: '😎 Setting up your \nprofile',
+                // secondRow: 'profile',
+                secondRow: Text(
+                  'Add your profile photo',
+                  style: TextStyle(
+                    color: Color(0xffD5D4D5),
                   ),
                 ),
-                const ImagePick(),
-                const CustomTextWidget(
-                  title: 'Display Name',
+              ),
+              DefaultPaddingWidget(
+                body: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const ImagePick(),
+                    SizedBox(
+                      height: Responsivity.automatic(28, mediaQueryData),
+                    ),
+                    const CustomTextWidget(
+                      title: 'Display Name',
+                    ),
+                    SizedBox(
+                      height: Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    const TextFieldWidget(
+                      prefixIcon: Icons.person,
+                    ),
+                    SizedBox(
+                      height: Responsivity.automatic(28, mediaQueryData),
+                    ),
+                    const CustomTextWidget(
+                      title: 'CPF',
+                    ),
+                    SizedBox(
+                      height: Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    const TextFieldWidget(
+                      prefixIcon: Icons.person,
+                    ),
+                    SizedBox(
+                      height: Responsivity.automatic(28, mediaQueryData),
+                    ),
+                    const CustomTextWidget(
+                      title: 'Telephone',
+                    ),
+                    SizedBox(
+                      height: Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    const TextFieldWidget(
+                      prefixIcon: Icons.phone,
+                    ),
+                    SizedBox(
+                      height: Responsivity.automatic(28, mediaQueryData),
+                    ),
+                    const CustomTextWidget(title: 'Country'),
+                    SizedBox(
+                      height: Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    const TextFieldWidget(),
+                    SizedBox(
+                      height: Responsivity.automatic(90, mediaQueryData),
+                    ),
+                    ConfirmButtonWidget(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RegisterPage(),
+                          ),
+                        );
+                      },
+                      titleButton: 'Confirm',
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: Responsivity.automatic(20, mediaQueryData),
-                ),
-                const TextFieldWidget(
-                  prefixIcon: Icons.person,
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(28, mediaQueryData),
-                ),
-                const CustomTextWidget(
-                  title: 'CPF',
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(20, mediaQueryData),
-                ),
-                const TextFieldWidget(
-                  prefixIcon: Icons.person,
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(28, mediaQueryData),
-                ),
-                const CustomTextWidget(
-                  title: 'Telephone',
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(20, mediaQueryData),
-                ),
-                const TextFieldWidget(
-                  prefixIcon: Icons.phone,
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(28, mediaQueryData),
-                ),
-                const CustomTextWidget(title: 'Country'),
-                SizedBox(
-                  height: Responsivity.automatic(20, mediaQueryData),
-                ),
-                const TextFieldWidget(),
-                SizedBox(
-                  height: Responsivity.automatic(90, mediaQueryData),
-                ),
-                ConfirmButtonWidget(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RegisterPage(),
-                      ),
-                    );
-                  },
-                  titleButton: 'Confirm',
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

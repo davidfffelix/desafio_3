@@ -74,6 +74,7 @@ class RegisterPage extends StatelessWidget {
               ),
               DefaultPaddingWidget(
                 body: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const CustomTextWidget(
                       title: 'Full Name',
