@@ -23,6 +23,7 @@ class ConfirmButtonWidget extends StatelessWidget {
           ),
         ),
         color: const Color(0xff938BE2),
+        minWidth: Responsivity.automatic(380, mediaQueryData),
         height: Responsivity.automatic(60, mediaQueryData),
         onPressed: onPressed,
         child: Text(
