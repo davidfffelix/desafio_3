@@ -13,8 +13,22 @@ class DropDownWidget extends StatelessWidget {
           child: ValueListenableBuilder(
             valueListenable: dropValue,
             builder: (BuildContext context, String value, _) {
-              return DropDownButton<String>(
+              return DropdownButton<String>(
+                items: [],
                 hint: const Text('Choose the Country'),
+                value: (value.isEmpty) ? null : value,
+                onChanged: (selection) {
+                  // Para cada mudança dentro do DP, ele retorna uma selection.
+                  dropValue.value = selection.toString();
+                  items: dropOptions
+                      .map((option) => DropdownMenuItem(
+                            value: option,
+                            child: Text(option),
+                            // Quando o selecionar option no value, o Flutter vai
+                            //"chamar" o onChanged e valor será alterar no DP.
+                          ))
+                      .toList();
+                },
               );
             },
           ),
