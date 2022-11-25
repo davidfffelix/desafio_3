@@ -64,8 +64,8 @@ class LoginPage extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.all(
-                    20,
+                  padding: EdgeInsets.all(
+                    Responsivity.automatic(20, mediaQueryData),
                   ),
                   child: Text.rich(
                     TextSpan(
