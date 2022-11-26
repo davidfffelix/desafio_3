@@ -5,7 +5,7 @@ import '../components/custom_text_widget.dart';
 import '../components/default_padding_widget.dart';
 import '../components/image_login_widget.dart';
 import '../components/text_field_widget.dart';
-import '../drop_down_widget.dart';
+import '../components/drop_down_widget.dart';
 import '../home/register_page.dart';
 import '../responsivity.dart';
 

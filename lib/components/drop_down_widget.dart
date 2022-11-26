@@ -16,6 +16,7 @@ class DropDownWidget extends StatelessWidget {
               valueListenable: dropValue,
               builder: (BuildContext context, String value, _) {
                 return DropdownButton<String>(
+                  icon: const Icon(Icons.arrow_downward_sharp),
                   hint: const Text('Choose the Country'),
                   value: (value.isEmpty) ? null : value,
                   onChanged: (selection) =>
