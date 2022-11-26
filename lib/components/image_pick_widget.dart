@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/image_picker/picker_image.dart';
-import '../responsivity.dart';
+import '../core/responsivity.dart';
 
 class ImagePick extends StatefulWidget {
   const ImagePick({super.key});

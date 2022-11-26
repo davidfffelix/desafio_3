@@ -6,7 +6,7 @@ import '../components/custom_text_widget.dart';
 import '../components/text_field_widget.dart';
 import '../home/register_page.dart';
 import '../components/header_widget.dart';
-import '../responsivity.dart';
+import '../core/responsivity.dart';
 import '../components/image_pick_widget.dart';
 
 class ProfilePage extends StatelessWidget {

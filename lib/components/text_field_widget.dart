@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../responsivity.dart';
+import '../core/responsivity.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({

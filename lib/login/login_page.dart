@@ -7,7 +7,7 @@ import '../components/image_login_widget.dart';
 import '../components/text_field_widget.dart';
 import '../components/drop_down_widget.dart';
 import '../home/register_page.dart';
-import '../responsivity.dart';
+import '../core/responsivity.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

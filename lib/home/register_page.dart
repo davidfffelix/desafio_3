@@ -8,7 +8,7 @@ import '../components/header_widget.dart';
 import '../components/text_field_widget.dart';
 import '../login/login_page.dart';
 import '../profile_page/profile_page.dart';
-import '../responsivity.dart';
+import '../core/responsivity.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
