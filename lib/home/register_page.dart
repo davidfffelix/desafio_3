@@ -1,14 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../components/app_bar_widget.dart';
-import '../components/confirm_button_widget.dart';
-import '../components/default_padding_widget.dart';
-import '../components/custom_text_widget.dart';
-import '../components/header_widget.dart';
-import '../components/text_field_widget.dart';
+import '../../../design_system/lib/components/app_bar_widget.dart';
+import '../../../design_system/lib/components/confirm_button_widget.dart';
+import '../../../design_system/lib/components/default_padding_widget.dart';
+import '../../../design_system/lib/components/custom_text_widget.dart';
+import '../../../design_system/lib/components/header_widget.dart';
+import '../../../design_system/lib/components/text_field_widget.dart';
 import '../login/login_page.dart';
 import '../profile_page/profile_page.dart';
-import '../core/responsivity.dart';
+import '../../../design_system/lib/responsivity.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
