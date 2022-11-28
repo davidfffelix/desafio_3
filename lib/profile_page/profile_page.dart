@@ -1,13 +1,13 @@
+import 'package:design_system/components/app_bar_widget.dart';
+import 'package:design_system/components/confirm_button_widget.dart';
+import 'package:design_system/components/custom_text_widget.dart';
+import 'package:design_system/components/default_padding_widget.dart';
+import 'package:design_system/components/header_widget.dart';
+import 'package:design_system/components/image_pick_widget.dart';
+import 'package:design_system/components/text_field_widget.dart';
+import 'package:design_system/responsivity.dart';
 import 'package:flutter/material.dart';
-import '../../../design_system/lib/components/app_bar_widget.dart';
-import '../../../design_system/lib/components/confirm_button_widget.dart';
-import '../../../design_system/lib/components/default_padding_widget.dart';
-import '../../../design_system/lib/components/custom_text_widget.dart';
-import '../../../design_system/lib/components/text_field_widget.dart';
 import '../home/register_page.dart';
-import '../../../design_system/lib/components/header_widget.dart';
-import '../../../design_system/lib/responsivity.dart';
-import '../../../design_system/lib/components/image_pick_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

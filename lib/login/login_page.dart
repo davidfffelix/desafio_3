@@ -1,13 +1,13 @@
+import 'package:design_system/components/confirm_button_widget.dart';
+import 'package:design_system/components/custom_text_widget.dart';
+import 'package:design_system/components/default_padding_widget.dart';
+import 'package:design_system/components/drop_down_widget.dart';
+import 'package:design_system/components/image_login_widget.dart';
+import 'package:design_system/components/text_field_widget.dart';
+import 'package:design_system/responsivity.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../../../design_system/lib/components/confirm_button_widget.dart';
-import '../../../design_system/lib/components/custom_text_widget.dart';
-import '../../../design_system/lib/components/default_padding_widget.dart';
-import '../../../design_system/lib/components/image_login_widget.dart';
-import '../../../design_system/lib/components/text_field_widget.dart';
-import '../../../design_system/lib/components/drop_down_widget.dart';
 import '../home/register_page.dart';
-import '../../../design_system/lib/responsivity.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
