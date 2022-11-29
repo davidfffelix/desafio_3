@@ -1,9 +1,4 @@
-import 'package:design_system/components/app_bar_widget.dart';
-import 'package:design_system/components/confirm_button_widget.dart';
-import 'package:design_system/components/custom_text_widget.dart';
-import 'package:design_system/components/default_padding_widget.dart';
-import 'package:design_system/components/header_widget.dart';
-import 'package:design_system/components/text_field_widget.dart';
+import 'package:design_system/main.dart';
 import 'package:design_system/responsivity.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +113,7 @@ class RegisterPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ProfilePage(),
+                            builder: (context) => const ProfilePage(),
                           ),
                         );
                       },

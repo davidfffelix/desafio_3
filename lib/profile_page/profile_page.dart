@@ -1,11 +1,5 @@
 import 'dart:io';
-import 'package:design_system/components/image_pick_widget.dart';
-import 'package:design_system/components/app_bar_widget.dart';
-import 'package:design_system/components/confirm_button_widget.dart';
-import 'package:design_system/components/custom_text_widget.dart';
-import 'package:design_system/components/default_padding_widget.dart';
-import 'package:design_system/components/header_widget.dart';
-import 'package:design_system/components/text_field_widget.dart';
+import 'package:design_system/main.dart';
 import 'package:design_system/responsivity.dart';
 import 'package:flutter/material.dart';
 import '../core/image_picker/picker_image.dart';
@@ -62,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ImagePickWidget(
-                      image: path,
+                      path: path,
                       picker: () async {
                         path = await picker.getImage();
                         setState(() {});
