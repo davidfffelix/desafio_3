@@ -1,16 +1,26 @@
+import 'dart:io';
+import 'package:design_system/components/image_pick_widget.dart';
 import 'package:design_system/components/app_bar_widget.dart';
 import 'package:design_system/components/confirm_button_widget.dart';
 import 'package:design_system/components/custom_text_widget.dart';
 import 'package:design_system/components/default_padding_widget.dart';
 import 'package:design_system/components/header_widget.dart';
-import 'package:design_system/components/image_pick_widget.dart';
 import 'package:design_system/components/text_field_widget.dart';
 import 'package:design_system/responsivity.dart';
 import 'package:flutter/material.dart';
+import '../core/image_picker/picker_image.dart';
 import '../home/register_page.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  IPickerImage picker = ImagePickerImpl();
+  File? path;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +61,13 @@ class ProfilePage extends StatelessWidget {
                 body: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const ImagePick(),
+                    ImagePickWidget(
+                      image: path,
+                      picker: () async {
+                        path = await picker.getImage();
+                        setState(() {});
+                      },
+                    ),
                     SizedBox(
                       height: Responsivity.automatic(28, mediaQueryData),
                     ),

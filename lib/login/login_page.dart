@@ -83,8 +83,8 @@ class LoginPage extends StatelessWidget {
                             ..onTap = () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  // builder: (context) => const RegisterPage(),
-                                  builder: (context) => DropDownWidget(),
+                                  builder: (context) => const RegisterPage(),
+                                  // builder: (context) => DropDownWidget(),
                                 ),
                               );
                             },
