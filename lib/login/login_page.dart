@@ -7,7 +7,6 @@ import 'package:design_system/theme/components/image_login_widget.dart';
 import 'package:design_system/theme/components/text_field_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../home/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -84,7 +83,7 @@ class LoginPage extends StatelessWidget {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   // builder: (context) => const RegisterPage(),
-                                  builder: (context) => const ProfilePage(),
+                                  builder: (context) => ProfilePage(),
                                 ),
                               );
                             },

@@ -8,12 +8,11 @@ abstract class IPickerImage {
 
 class ImagePickerImpl implements IPickerImage {
   final ImagePicker _imagePicker = ImagePicker();
+  //TODO: Revisar
 
   @override
   Future<File?> getImage() async {
-    late final ImageSource source;
-
-    source = ImageSource.gallery;
+    const ImageSource source = ImageSource.gallery;
 
     final image = await _imagePicker.pickImage(source: source);
     if (image == null) return null;
