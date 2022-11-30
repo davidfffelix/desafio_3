@@ -1,3 +1,4 @@
+import 'package:design_system/design_system.dart';
 import 'login/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.green,
-      ),
+      // theme: DefaultTheme().defaultTheme,
       home: const LoginPage(),
     );
   }
