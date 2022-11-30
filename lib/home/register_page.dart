@@ -1,10 +1,5 @@
+import 'package:design_system/design_system.dart';
 import 'package:design_system/responsivity.dart';
-import 'package:design_system/theme/components/app_bar_widget.dart';
-import 'package:design_system/theme/components/confirm_button_widget.dart';
-import 'package:design_system/theme/components/custom_text_widget.dart';
-import 'package:design_system/theme/components/default_padding_widget.dart';
-import 'package:design_system/theme/components/header_widget.dart';
-import 'package:design_system/theme/components/text_field_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../login/login_page.dart';
