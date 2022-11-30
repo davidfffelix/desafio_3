@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:design_system/design_system.dart';
 import 'package:design_system/responsivity.dart';
 import 'package:design_system/theme/components/app_bar_widget.dart';
 import 'package:design_system/theme/components/confirm_button_widget.dart';
@@ -8,6 +9,7 @@ import 'package:design_system/theme/components/header_widget.dart';
 import 'package:design_system/theme/components/image_pick_widget.dart';
 import 'package:design_system/theme/components/text_field_widget.dart';
 import 'package:flutter/material.dart';
+import '../core/countries.dart';
 import '../core/image_picker/picker_image.dart';
 import '../home/register_page.dart';
 
@@ -108,10 +110,36 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: Responsivity.automatic(28, mediaQueryData),
                     ),
                     const CustomTextWidget(title: 'Country'),
+                    CustomDropDownWidget<Country>(
+                        hint: const Text(
+                          'Select your Country',
+                          style: TextStyle(
+                            color: Color(0xff938BE2),
+                          ),
+                        ),
+                        items: countries
+                            .map(
+                              (country) => DropdownMenuItem(
+                                value: country,
+                                child: Row(
+                                  children: [
+                                    Text(country.flag),
+                                    const SizedBox(
+                                      width: 4,
+                                    ),
+                                    Text(country.name),
+                                    const Icon(Icons.arrow_downward_rounded),
+                                  ],
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (selection) {}
+                        // countries = selection.toString(),
+                        ),
                     SizedBox(
                       height: Responsivity.automatic(20, mediaQueryData),
                     ),
-                    const TextFieldWidget(),
                     SizedBox(
                       height: Responsivity.automatic(90, mediaQueryData),
                     ),

@@ -1,4 +1,4 @@
-import 'package:design_system/design_system.dart';
+import 'package:desafio_3/profile_page/profile_page.dart';
 import 'package:design_system/responsivity.dart';
 import 'package:design_system/theme/components/confirm_button_widget.dart';
 import 'package:design_system/theme/components/custom_text_widget.dart';
@@ -84,7 +84,7 @@ class LoginPage extends StatelessWidget {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   // builder: (context) => const RegisterPage(),
-                                  builder: (context) => DropDownWidget(),
+                                  builder: (context) => const ProfilePage(),
                                 ),
                               );
                             },
