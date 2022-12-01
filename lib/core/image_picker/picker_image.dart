@@ -7,8 +7,9 @@ abstract class IPickerImage {
 }
 
 class ImagePickerImpl implements IPickerImage {
-  final ImagePicker _imagePicker = ImagePicker();
-  //TODO: Revisar
+  final ImagePicker _imagePicker;
+  ImagePickerImpl(this._imagePicker);
+  //Instância para utilizar o package
 
   @override
   Future<File?> getImage() async {

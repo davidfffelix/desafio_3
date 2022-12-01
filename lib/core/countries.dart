@@ -412,7 +412,7 @@ List<Country> countries = [
     maxLength: 7,
   ),
   Country(
-    name: "Congo, The Democratic Republic of the Congo",
+    name: "Congo",
     flag: "🇨🇩",
     code: "CD",
     dialCode: "243",
@@ -935,7 +935,7 @@ List<Country> countries = [
     maxLength: 5,
   ),
   Country(
-    name: "Korea, Democratic People's Republic of Korea",
+    name: "North Korea",
     flag: "🇰🇵",
     code: "KP",
     dialCode: "850",
@@ -943,7 +943,7 @@ List<Country> countries = [
     maxLength: 10,
   ),
   Country(
-    name: "Korea, Republic of South Korea",
+    name: "South Korea",
     flag: "🇰🇷",
     code: "KR",
     dialCode: "82",
@@ -1159,7 +1159,7 @@ List<Country> countries = [
     maxLength: 10,
   ),
   Country(
-    name: "Micronesia, Federated States of Micronesia",
+    name: "Micronesia",
     flag: "🇫🇲",
     code: "FM",
     dialCode: "691",
@@ -1495,7 +1495,7 @@ List<Country> countries = [
     maxLength: 9,
   ),
   Country(
-    name: "Saint Helena, Ascension and Tristan Da Cunha",
+    name: "Saint Helena",
     flag: "🇸🇭",
     code: "SH",
     dialCode: "290",
@@ -1663,7 +1663,7 @@ List<Country> countries = [
     maxLength: 9,
   ),
   Country(
-    name: "South Georgia and the South Sandwich Islands",
+    name: "South Georgia",
     flag: "🇬🇸",
     code: "GS",
     dialCode: "500",
@@ -1919,7 +1919,7 @@ List<Country> countries = [
     maxLength: 7,
   ),
   Country(
-    name: "Venezuela, Bolivarian Republic of Venezuela",
+    name: "Venezuela",
     flag: "🇻🇪",
     code: "VE",
     dialCode: "58",
@@ -1992,6 +1992,7 @@ class Country {
   final String regionCode;
   final int minLength;
   final int maxLength;
+
   Country({
     required this.name,
     required this.flag,

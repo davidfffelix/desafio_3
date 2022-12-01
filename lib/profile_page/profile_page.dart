@@ -2,21 +2,22 @@ import 'dart:io';
 import 'package:design_system/design_system.dart';
 import 'package:design_system/responsivity.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../core/countries.dart';
 import '../core/image_picker/picker_image.dart';
 import '../home/register_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({super.key});
-  final dropValue = ValueNotifier('');
+  const ProfilePage({super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  IPickerImage picker = ImagePickerImpl();
+  IPickerImage picker = ImagePickerImpl(ImagePicker());
   File? path;
+  Country? selectedCountry;
 
   @override
   Widget build(BuildContext context) {
@@ -105,29 +106,30 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     const CustomTextWidget(title: 'Country'),
                     CustomDropDownWidget<Country>(
-                        hint: const Text(
-                          'Select your Country',
-                        ),
-                        items: countries.map(
-                          (country) {
-                            return DropdownMenuItem(
-                              value: country,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(country.flag),
-                                  const SizedBox(
-                                    width: 6,
-                                  ),
-                                  Text(country.name),
-                                ],
-                              ),
-                            );
-                          },
-                        ).toList(),
-                        onChanged: (selection) {
-                          // .country = selection.toString();
-                        }),
+                      hint: const Text(
+                        'Select your Country',
+                      ),
+                      onChanged: (country) {
+                        selectedCountry = country;
+                      },
+                      items: countries.map(
+                        (country) {
+                          return DropdownMenuItem(
+                            value: country,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(country.flag),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                Text(country.name),
+                              ],
+                            ),
+                          );
+                        },
+                      ).toList(),
+                    ),
                     SizedBox(
                       height: Responsivity.automatic(90, mediaQueryData),
                     ),
@@ -152,15 +154,3 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
-
-// onChanged: (selection) =>
-//                           dropValue.value = selection.toString(),
-//                       items: dropOptions
-//                           .map(
-//                             (option) => DropdownMenuItem(
-//                               value: option,
-//                               child: Text(option),
-//                             ),
-//                           )
-//                           .toList(),
