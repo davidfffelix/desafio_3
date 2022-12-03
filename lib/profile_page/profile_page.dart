@@ -15,6 +15,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final formKey = GlobalKey<FormState>();
+
+  String _userEmail = '';
+  String _userName = '';
+  String _telephone = '';
+  String _password = '';
+
   IPickerImage picker = ImagePickerImpl(ImagePicker());
   File? path;
   Country? selectedCountry;
@@ -62,9 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       path: path,
                       picker: () async {
                         path = await picker.getImage();
-                        setState(() {
-                          
-                        });
+                        setState(() {});
                       },
                     ),
                     SizedBox(
@@ -76,8 +81,22 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       height: Responsivity.automatic(20, mediaQueryData),
                     ),
-                    const TextFieldWidget(
+                    TextFieldWidget(
+                      hintText: 'Display Name',
+                      labelText: 'Display Name',
                       prefixIcon: Icons.person,
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp('[a-z A-Z]{10}').hasMatch(value)) {
+                          return 'Enter correct name';
+                        } else {
+                          return null;
+                        }
+                      },
+                      onChanged: (value) {
+                        formKey.currentState?.validate();
+                        _userEmail = value;
+                      },
                     ),
                     SizedBox(
                       height: Responsivity.automatic(28, mediaQueryData),
@@ -88,8 +107,21 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       height: Responsivity.automatic(20, mediaQueryData),
                     ),
-                    const TextFieldWidget(
+                    TextFieldWidget(
+                      hintText: 'CPF',
+                      labelText: 'CPF',
                       prefixIcon: Icons.person,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return 'Please enter your CPF address';
+                        }
+                        if (!RegExp(r'\S+@\S+.\S+').hasMatch(value)) {
+                          /// comeca com string e aceita quantos caracteres necessario S+ em 3 grupos
+                          return 'Please enter a valid CPF address';
+                        }
+                        return null;
+                      },
+                      onChanged: (value) => _userEmail = value,
                     ),
                     SizedBox(
                       height: Responsivity.automatic(28, mediaQueryData),
@@ -100,9 +132,19 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       height: Responsivity.automatic(20, mediaQueryData),
                     ),
-                    const TextFieldWidget(
-                      prefixIcon: Icons.phone,
-                    ),
+                    TextFieldWidget(
+                        hintText: 'Telephone',
+                        labelText: 'Telephone',
+                        prefixIcon: Icons.phone,
+                        onChanged: (value) => _telephone = value,
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please enter your telephone';
+                          }
+                          if (value.trim().length < 11) {
+                            return 'Please enter your telephone correct';
+                          }
+                        }),
                     SizedBox(
                       height: Responsivity.automatic(28, mediaQueryData),
                     ),

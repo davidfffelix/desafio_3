@@ -4,8 +4,22 @@ import 'package:design_system/responsivity.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+import '../validators/validators.dart';
+
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final formKey = GlobalKey<FormState>();
+
+  String _userEmail = '';
+  String _userName = '';
+  String _telephone = '';
+  String _password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +37,18 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: Responsivity.automatic(30, mediaQueryData),
                 ),
-                const CustomTextWidget(title: 'E-mail or Name'),
+                const CustomTextWidget(title: 'E-mail'),
                 SizedBox(
                   height: Responsivity.automatic(20, mediaQueryData),
                 ),
-                const TextFieldWidget(
+                TextFieldWidget(
+                  hintText: 'E-mail',
+                  labelText: 'E-mail',
                   prefixIcon: Icons.person,
+                  onChanged: (value) => _userEmail = value,
+                  validator: (value) => Validators.emailValidator(
+                    email: value,
+                  ),
                 ),
                 SizedBox(
                   height: Responsivity.automatic(28, mediaQueryData),
@@ -37,9 +57,15 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: Responsivity.automatic(20, mediaQueryData),
                 ),
-                const TextFieldWidget(
+                TextFieldWidget(
+                  hintText: 'Password',
+                  labelText: 'Password',
                   prefixIcon: Icons.lock,
                   suffixIcon: Icons.visibility,
+                  onChanged: (value) => _password = value,
+                  validator: (value) => Validators.passwordValidate(
+                    password: value,
+                  ),
                 ),
                 SizedBox(
                   height: Responsivity.automatic(40, mediaQueryData),

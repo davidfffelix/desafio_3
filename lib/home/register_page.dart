@@ -4,9 +4,33 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../login/login_page.dart';
 import '../profile_page/profile_page.dart';
+import '../validators/validators.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final formKey = GlobalKey<FormState>();
+
+  String _userEmail = '';
+  String _userName = '';
+  String _telephone = '';
+  String _password = '';
+
+  void _trySubmitForm() {
+    final bool? isValid = formKey.currentState?.validate();
+    if (isValid == true) {
+      debugPrint('Everything looks good!');
+      debugPrint(_userEmail);
+      debugPrint(_userName);
+      debugPrint(_telephone);
+      Navigator.pushNamed(context, '/');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +63,11 @@ class RegisterPage extends StatelessWidget {
                 firstRow: '👋 Hello, \n Are you new there?',
                 secondRow: Row(
                   children: [
-                    Text(
+                    const Text(
                       'if you have an account /',
                       style: TextStyle(
-                        // color: Color(0xffD5D4D5),
-                        color: Theme.of(context).backgroundColor,
+                        color: Color(0xffD5D4D5),
+                        // color: Theme.of(context).backgroundColor,
                         // style: DefaultTheme().defaultTheme.textTheme.bodyLarge
                       ),
                     ),
@@ -71,58 +95,85 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
               DefaultPaddingWidget(
-                body: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const CustomTextWidget(
-                      title: 'Full Name',
-                    ),
-                    SizedBox(
-                      height: Responsivity.automatic(20, mediaQueryData),
-                    ),
-                    const TextFieldWidget(
-                      prefixIcon: Icons.person,
-                    ),
-                    SizedBox(
-                      height: Responsivity.automatic(28, mediaQueryData),
-                    ),
-                    const CustomTextWidget(
-                      title: 'E-mail',
-                    ),
-                    SizedBox(
-                      height: Responsivity.automatic(20, mediaQueryData),
-                    ),
-                    const TextFieldWidget(
-                      prefixIcon: Icons.email,
-                    ),
-                    SizedBox(
-                      height: Responsivity.automatic(28, mediaQueryData),
-                    ),
-                    const CustomTextWidget(
-                      title: 'Password',
-                    ),
-                    SizedBox(
-                      height: Responsivity.automatic(20, mediaQueryData),
-                    ),
-                    const TextFieldWidget(
-                      prefixIcon: Icons.lock,
-                      suffixIcon: Icons.visibility,
-                    ),
-                    SizedBox(
-                      height: Responsivity.automatic(90, mediaQueryData),
-                    ),
-                    ConfirmButtonWidget(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProfilePage(),
-                          ),
-                        );
-                      },
-                      titleButton: 'Sign Up',
-                    ),
-                  ],
+                body: Form(
+                  key: formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const CustomTextWidget(
+                        title: 'Full Name',
+                      ),
+                      SizedBox(
+                        height: Responsivity.automatic(20, mediaQueryData),
+                      ),
+                      TextFieldWidget(
+                        hintText: 'Name',
+                        labelText: 'Name',
+                        prefixIcon: Icons.person,
+                        validator: (value) => Validators.nameValidator(
+                          name: value,
+                        ),
+                        onChanged: (value) {
+                          formKey.currentState?.validate();
+                          _userEmail = value;
+                        },
+                      ),
+                      SizedBox(
+                        height: Responsivity.automatic(28, mediaQueryData),
+                      ),
+                      const CustomTextWidget(
+                        title: 'E-mail',
+                      ),
+                      SizedBox(
+                        height: Responsivity.automatic(20, mediaQueryData),
+                      ),
+                      TextFieldWidget(
+                        hintText: 'E-mail',
+                        labelText: 'E-mail',
+                        prefixIcon: Icons.email,
+                        onChanged: (value) => _userEmail = value,
+                        validator: (value) => Validators.emailValidator(
+                          email: value,
+                        ),
+                      ),
+                      SizedBox(
+                        height: Responsivity.automatic(28, mediaQueryData),
+                      ),
+                      const CustomTextWidget(
+                        title: 'Password',
+                      ),
+                      SizedBox(
+                        height: Responsivity.automatic(20, mediaQueryData),
+                      ),
+                      TextFieldWidget(
+                        hintText: 'Password',
+                        labelText: 'Password',
+                        prefixIcon: Icons.lock,
+                        suffixIcon: Icons.visibility,
+                        onChanged: (value) => _password = value,
+                        validator: (value) => Validators.passwordValidate(
+                          password: value,
+                        ),
+                      ),
+                      SizedBox(
+                        height: Responsivity.automatic(90, mediaQueryData),
+                      ),
+                      ConfirmButtonWidget(
+                        titleButton: 'Teste',
+                        onPressed: () {
+                          _trySubmitForm();
+                        },
+                      ),
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const ProfilePage(),
+                      //   ),
+                      // );
+                      // },
+                      // titleButton: 'Sign Up',
+                    ],
+                  ),
                 ),
               ),
             ],
