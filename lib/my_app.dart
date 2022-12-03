@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // theme: DefaultTheme().defaultTheme,
+      theme: DefaultTheme().defaultTheme,
       home: const LoginPage(),
     );
   }

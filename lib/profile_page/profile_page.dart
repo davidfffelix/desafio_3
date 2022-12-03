@@ -62,7 +62,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       path: path,
                       picker: () async {
                         path = await picker.getImage();
-                        setState(() {});
+                        setState(() {
+                          
+                        });
                       },
                     ),
                     SizedBox(

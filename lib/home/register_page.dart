@@ -39,10 +39,12 @@ class RegisterPage extends StatelessWidget {
                 firstRow: '👋 Hello, \n Are you new there?',
                 secondRow: Row(
                   children: [
-                    const Text(
+                    Text(
                       'if you have an account /',
                       style: TextStyle(
-                        color: Color(0xffD5D4D5),
+                        // color: Color(0xffD5D4D5),
+                        color: Theme.of(context).backgroundColor,
+                        // style: DefaultTheme().defaultTheme.textTheme.bodyLarge
                       ),
                     ),
                     Text.rich(
@@ -114,7 +116,7 @@ class RegisterPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ProfilePage(),
+                            builder: (context) => const ProfilePage(),
                           ),
                         );
                       },
