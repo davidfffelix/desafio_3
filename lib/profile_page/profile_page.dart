@@ -15,7 +15,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>(); // Chave para chamar o formulário
 
   String _userEmail = '';
   String _userName = '';
@@ -95,6 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       },
                       onChanged: (value) {
                         formKey.currentState?.validate();
+                        // Faz com que as validações funcionem
                         _userEmail = value;
                       },
                     ),
@@ -121,7 +122,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         }
                         return null;
                       },
-                      onChanged: (value) => _userEmail = value,
+                      onChanged: (value) {
+                        _userEmail = value;
+                      },
                     ),
                     SizedBox(
                       height: Responsivity.automatic(28, mediaQueryData),

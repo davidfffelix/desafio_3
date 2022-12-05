@@ -17,8 +17,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final formKey = GlobalKey<FormState>();
 
   String _userEmail = '';
-  String _userName = '';
-  String _telephone = '';
+  final String _userName = '';
+  final String _telephone = '';
   String _password = '';
 
   void _trySubmitForm() {
