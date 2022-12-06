@@ -131,10 +131,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'E-mail',
                         labelText: 'E-mail',
                         prefixIcon: Icons.email,
+                        keyboardType: TextInputType.emailAddress,
                         onChanged: (value) => _userEmail = value,
-                        validator: (value) => Validators.emailValidator(
-                          email: value,
-                        ),
+                        validator: (value) {
+                          return Validators.emailValidator(
+                            email: value,
+                          );
+                        },
                       ),
                       SizedBox(
                         height: Responsivity.automatic(28, mediaQueryData),
@@ -151,7 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         prefixIcon: Icons.lock,
                         suffixIcon: Icons.visibility,
                         onChanged: (value) => _password = value,
-                        validator: (value) => Validators.passwordValidate(
+                        validator: (value) => Validators.passwordValidator(
                           password: value,
                         ),
                       ),
@@ -159,7 +162,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: Responsivity.automatic(90, mediaQueryData),
                       ),
                       ConfirmButtonWidget(
-                        titleButton: 'Teste',
+                        titleButton: 'Sign Up',
                         onPressed: () {
                           _trySubmitForm();
                         },

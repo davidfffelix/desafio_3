@@ -45,10 +45,14 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'E-mail',
                   labelText: 'E-mail',
                   prefixIcon: Icons.person,
-                  onChanged: (value) => _userEmail = value,
-                  validator: (value) => Validators.emailValidator(
+                  onChanged: (value) {
+                    _userEmail = value;
+                  },
+                  validator: (value) {
+                    return Validators.emailValidator(
                     email: value,
-                  ),
+                  );
+                  },
                 ),
                 SizedBox(
                   height: Responsivity.automatic(28, mediaQueryData),
@@ -62,10 +66,14 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: 'Password',
                   prefixIcon: Icons.lock,
                   suffixIcon: Icons.visibility,
-                  onChanged: (value) => _password = value,
-                  validator: (value) => Validators.passwordValidate(
+                  onChanged: (value) {
+                    _password = value;
+                  },
+                  validator: (value) {
+                    return Validators.passwordValidator(
                     password: value,
-                  ),
+                  );
+                  },
                 ),
                 SizedBox(
                   height: Responsivity.automatic(40, mediaQueryData),
@@ -105,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   // builder: (context) => const RegisterPage(),
-                                  builder: (context) => ProfilePage(),
+                                  builder: (context) => const ProfilePage(),
                                 ),
                               );
                             },

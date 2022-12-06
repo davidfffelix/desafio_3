@@ -1,5 +1,5 @@
 class Validators {
-  static String? passwordValidate({
+  static String? passwordValidator({
     String? password,
   }) {
     if (password == null || password.trim().isEmpty) {
@@ -11,27 +11,13 @@ class Validators {
     return null;
   }
 
-  static String? confirmPasswordValidate({
-    String? password,
-    String? confirmPassword,
-  }) {
-    if (confirmPassword == null || confirmPassword.isEmpty) {
-      return 'This field is required';
-    }
-    if (confirmPassword != password) {
-      return 'Confirmation password does not match the entered password';
-    }
-    return null;
-  }
-
   static String? emailValidator({
     String? email,
-    String? confirmEmail,
   }) {
-    if (confirmEmail == null || confirmEmail.trim().isEmpty) {
+    if (email == null || email.trim().isEmpty) {
       return 'Please enter your email address';
     }
-    if (!RegExp(r'\S+@\S+.\S+').hasMatch(confirmEmail)) {
+    if (!RegExp(r'\S+@\S+.\S+').hasMatch(email)) {
       return 'Please enter a valid email address';
     }
     return null;
@@ -39,13 +25,34 @@ class Validators {
 
   static String? nameValidator({
     String? name,
-    String? confirmName,
   }) {
-    if (confirmName!.isEmpty ||
-        !RegExp('[a-z A-Z]{10}').hasMatch(confirmName)) {
+    if (name!.isEmpty || !RegExp('[a-z A-Z]{10}').hasMatch(name)) {
       return 'Enter correct name';
     } else {
       return null;
     }
+  }
+
+  static String? cpfValidator({
+    String? cpf,
+  }) {
+    if (cpf!.isEmpty ||
+        !RegExp("[0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}").hasMatch(cpf)) {
+      return 'Enter correct cpf';
+    } else {
+      return null;
+    }
+  }
+
+  static String? telephoneValidator({
+    String? telephone,
+  }) {
+    if (telephone == null || telephone.trim().isEmpty) {
+      return 'Please enter your telephone';
+    }
+    if (telephone.trim().length < 11) {
+      return 'Please enter your telephone correct';
+    }
+    return null;
   }
 }

@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import '../core/countries.dart';
 import '../core/image_picker/picker_image.dart';
 import '../home/register_page.dart';
+import '../validators/validators.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -76,27 +77,24 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: Responsivity.automatic(28, mediaQueryData),
                     ),
                     const CustomTextWidget(
-                      title: 'Display Name',
+                      title: 'Full Name',
                     ),
                     SizedBox(
                       height: Responsivity.automatic(20, mediaQueryData),
                     ),
                     TextFieldWidget(
-                      hintText: 'Display Name',
-                      labelText: 'Display Name',
+                      hintText: 'Name',
+                      labelText: 'Name',
                       prefixIcon: Icons.person,
-                      validator: (value) {
-                        if (value!.isEmpty ||
-                            !RegExp('[a-z A-Z]{10}').hasMatch(value)) {
-                          return 'Enter correct name';
-                        } else {
-                          return null;
-                        }
-                      },
                       onChanged: (value) {
                         formKey.currentState?.validate();
                         // Faz com que as validações funcionem
                         _userEmail = value;
+                      },
+                      validator: (value) {
+                        return Validators.nameValidator(
+                          name: value,
+                        );
                       },
                     ),
                     SizedBox(
@@ -112,18 +110,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       hintText: 'CPF',
                       labelText: 'CPF',
                       prefixIcon: Icons.person,
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return 'Please enter your CPF address';
-                        }
-                        if (!RegExp(r'\S+@\S+.\S+').hasMatch(value)) {
-                          /// comeca com string e aceita quantos caracteres necessario S+ em 3 grupos
-                          return 'Please enter a valid CPF address';
-                        }
-                        return null;
-                      },
                       onChanged: (value) {
                         _userEmail = value;
+                      },
+                      validator: (value) {
+                        return Validators.cpfValidator(
+                          cpf: value,
+                        );
                       },
                     ),
                     SizedBox(
@@ -136,22 +129,24 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: Responsivity.automatic(20, mediaQueryData),
                     ),
                     TextFieldWidget(
-                        hintText: 'Telephone',
-                        labelText: 'Telephone',
-                        prefixIcon: Icons.phone,
-                        onChanged: (value) => _telephone = value,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Please enter your telephone';
-                          }
-                          if (value.trim().length < 11) {
-                            return 'Please enter your telephone correct';
-                          }
-                        }),
+                      hintText: 'Telephone',
+                      labelText: 'Telephone',
+                      prefixIcon: Icons.phone,
+                      onChanged: (value) {
+                        _telephone = value;
+                      },
+                      validator: (value) {
+                        return Validators.telephoneValidator(
+                          telephone: value,
+                        );
+                      },
+                    ),
                     SizedBox(
                       height: Responsivity.automatic(28, mediaQueryData),
                     ),
-                    const CustomTextWidget(title: 'Country'),
+                    const CustomTextWidget(
+                      title: 'Country',
+                    ),
                     CustomDropDownWidget<Country>(
                       hint: const Text(
                         'Select your Country',
