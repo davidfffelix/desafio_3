@@ -88,6 +88,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         hintText: 'Name',
                         labelText: 'Name',
                         prefixIcon: Icons.person,
+                        obscureText: false,
                         onChanged: (value) {
                           formKey.currentState?.validate();
                           // Faz com que as validações funcionem
@@ -112,6 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         hintText: 'CPF',
                         labelText: 'CPF',
                         prefixIcon: Icons.person,
+                        obscureText: false,
                         onChanged: (value) {
                           _userEmail = value;
                         },
@@ -134,6 +136,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         hintText: 'Telephone',
                         labelText: 'Telephone',
                         prefixIcon: Icons.phone,
+                        obscureText: false,
                         onChanged: (value) {
                           _telephone = value;
                         },

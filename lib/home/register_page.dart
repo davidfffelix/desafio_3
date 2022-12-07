@@ -99,6 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'Name',
                         labelText: 'Name',
                         prefixIcon: Icons.person,
+                        obscureText: false,
                         validator: (value) => Validators.nameValidator(
                           name: value,
                         ),
@@ -121,7 +122,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         labelText: 'E-mail',
                         prefixIcon: Icons.email,
                         keyboardType: TextInputType.emailAddress,
-                        onChanged: (value) => _userEmail = value,
+                        obscureText: false,
+                        onChanged: (value) {
+                          _userEmail = value;
+                        },
                         validator: (value) {
                           return Validators.emailValidator(
                             email: value,

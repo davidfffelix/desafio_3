@@ -48,10 +48,11 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'E-mail',
                     prefixIcon: Icons.person,
                     keyboardType: TextInputType.emailAddress,
-                    onChanged: (value) {
-                      // TODO: Estudar
-                      _userEmail = value;
-                    },
+                    obscureText: false,
+                    // onChanged: (value) {
+                    //   // TODO: Estudar
+                    //   _userEmail = value;
+                    // },
                     validator: (value) {
                       return Validators.emailValidator(
                         email: value,
@@ -70,10 +71,11 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'Password',
                     prefixIcon: Icons.lock,
                     suffixIcon: Icons.visibility,
-                    obscureText: true, // TODO: Verificar se está correto
-                    onChanged: (value) {
-                      _password = value;
-                    },
+                    obscureText: true,
+                    // obscureText: true, // TODO: Verificar se está correto
+                    // onChanged: (value) {
+                    //   _password = value;
+                    // },
                     validator: (value) {
                       // Verifica se o valor é válido
                       return Validators.passwordValidator(
@@ -88,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: Responsivity.automatic(30, mediaQueryData),
                   ),
                   ConfirmButtonWidget(
-                    // TODO: Daniel me ensinou
+                    // TODO: Daniel ensinou
                     onPressed: () {
                       final isValid = formKey.currentState!.validate();
                       if (isValid == false) {
