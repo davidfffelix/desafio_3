@@ -21,17 +21,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final String _telephone = '';
   String _password = '';
 
-  void _trySubmitForm() {
-    final bool? isValid = formKey.currentState?.validate();
-    if (isValid == true) {
-      debugPrint('Everything looks good!');
-      debugPrint(_userEmail);
-      debugPrint(_userName);
-      debugPrint(_telephone);
-      Navigator.pushNamed(context, '/');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
@@ -153,19 +142,22 @@ class _RegisterPageState extends State<RegisterPage> {
                         labelText: 'Password',
                         prefixIcon: Icons.lock,
                         suffixIcon: Icons.visibility,
-                        onChanged: (value) => _password = value,
-                        validator: (value) => Validators.passwordValidator(
-                          password: value,
-                        ),
+                        obscureText: true,
+                        onChanged: (value) {
+                          _password = value;
+                        },
+                        validator: (value) {
+                          return Validators.passwordValidator(
+                            password: value,
+                          );
+                        },
                       ),
                       SizedBox(
                         height: Responsivity.automatic(90, mediaQueryData),
                       ),
                       ConfirmButtonWidget(
                         titleButton: 'Sign Up',
-                        onPressed: () {
-                          _trySubmitForm();
-                        },
+                        onPressed: () {},
                       ),
                       // Navigator.push(
                       //   context,

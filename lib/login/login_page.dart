@@ -30,99 +30,111 @@ class _LoginPageState extends State<LoginPage> {
         // backgroundColor: const Color(0xffFAFBFB),
         body: SingleChildScrollView(
           child: DefaultPaddingWidget(
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const ImageLoginWidget(),
-                SizedBox(
-                  height: Responsivity.automatic(30, mediaQueryData),
-                ),
-                const CustomTextWidget(title: 'E-mail'),
-                SizedBox(
-                  height: Responsivity.automatic(20, mediaQueryData),
-                ),
-                TextFieldWidget(
-                  hintText: 'E-mail',
-                  labelText: 'E-mail',
-                  prefixIcon: Icons.person,
-                  onChanged: (value) {
-                    _userEmail = value;
-                  },
-                  validator: (value) {
-                    return Validators.emailValidator(
-                    email: value,
-                  );
-                  },
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(28, mediaQueryData),
-                ),
-                const CustomTextWidget(title: 'Password'),
-                SizedBox(
-                  height: Responsivity.automatic(20, mediaQueryData),
-                ),
-                TextFieldWidget(
-                  hintText: 'Password',
-                  labelText: 'Password',
-                  prefixIcon: Icons.lock,
-                  suffixIcon: Icons.visibility,
-                  onChanged: (value) {
-                    _password = value;
-                  },
-                  validator: (value) {
-                    return Validators.passwordValidator(
-                    password: value,
-                  );
-                  },
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(40, mediaQueryData),
-                ),
-                SizedBox(
-                  height: Responsivity.automatic(30, mediaQueryData),
-                ),
-                ConfirmButtonWidget(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
-                      ),
-                    );
-                  },
-                  titleButton: 'Sign In',
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(
-                    Responsivity.automatic(20, mediaQueryData),
+            body: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const ImageLoginWidget(),
+                  SizedBox(
+                    height: Responsivity.automatic(30, mediaQueryData),
                   ),
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: "Don't have an account yet? - ",
+                  const CustomTextWidget(title: 'E-mail'),
+                  SizedBox(
+                    height: Responsivity.automatic(20, mediaQueryData),
+                  ),
+                  TextFieldWidget(
+                    hintText: 'E-mail',
+                    labelText: 'E-mail',
+                    prefixIcon: Icons.person,
+                    keyboardType: TextInputType.emailAddress,
+                    onChanged: (value) {
+                      // TODO: Estudar
+                      _userEmail = value;
+                    },
+                    validator: (value) {
+                      return Validators.emailValidator(
+                        email: value,
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: Responsivity.automatic(28, mediaQueryData),
+                  ),
+                  const CustomTextWidget(title: 'Password'),
+                  SizedBox(
+                    height: Responsivity.automatic(20, mediaQueryData),
+                  ),
+                  TextFieldWidget(
+                    hintText: 'Password',
+                    labelText: 'Password',
+                    prefixIcon: Icons.lock,
+                    suffixIcon: Icons.visibility,
+                    obscureText: true, // TODO: Verificar se está correto
+                    onChanged: (value) {
+                      _password = value;
+                    },
+                    validator: (value) {
+                      // Verifica se o valor é válido
+                      return Validators.passwordValidator(
+                        password: value,
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: Responsivity.automatic(40, mediaQueryData),
+                  ),
+                  SizedBox(
+                    height: Responsivity.automatic(30, mediaQueryData),
+                  ),
+                  ConfirmButtonWidget(
+                    // TODO: Daniel me ensinou
+                    onPressed: () {
+                      final isValid = formKey.currentState!.validate();
+                      if (isValid == false) {
+                        return;
+                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginPage(),
                         ),
-                        TextSpan(
-                          text: 'Register',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
+                      );
+                    },
+                    titleButton: 'Sign In',
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(
+                      Responsivity.automatic(20, mediaQueryData),
+                    ),
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          const TextSpan(
+                            text: "Don't have an account yet? - ",
                           ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  // builder: (context) => const RegisterPage(),
-                                  builder: (context) => const ProfilePage(),
-                                ),
-                              );
-                            },
-                        ),
-                      ],
+                          TextSpan(
+                            text: 'Register',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    // builder: (context) => const RegisterPage(),
+                                    builder: (context) => const ProfilePage(),
+                                  ),
+                                );
+                              },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

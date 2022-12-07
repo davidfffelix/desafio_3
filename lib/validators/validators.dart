@@ -38,7 +38,7 @@ class Validators {
   }) {
     if (cpf!.isEmpty ||
         !RegExp("[0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}").hasMatch(cpf)) {
-      return 'Enter correct cpf';
+      return 'Enter correct CPF';
     } else {
       return null;
     }
