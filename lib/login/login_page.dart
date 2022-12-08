@@ -71,8 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'Password',
                     prefixIcon: Icons.lock,
                     suffixIcon: Icons.visibility,
-                    obscureText: true,
-                    // obscureText: true, // TODO: Verificar se está correto
+                    obscureText: true, // TODO: Verificar se está correto
                     // onChanged: (value) {
                     //   _password = value;
                     // },
