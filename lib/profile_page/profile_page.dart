@@ -85,10 +85,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        hintText: 'Name',
                         labelText: 'Name',
+                        hintText: 'Type your name',
                         prefixIcon: Icons.person,
-                        obscureText: false,
                         onChanged: (value) {
                           formKey.currentState?.validate();
                           // Faz com que as validações funcionem
@@ -110,10 +109,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        hintText: 'CPF',
                         labelText: 'CPF',
+                        hintText: 'Type your CPF',
                         prefixIcon: Icons.person,
-                        obscureText: false,
                         onChanged: (value) {
                           _userEmail = value;
                         },
@@ -133,10 +131,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        hintText: 'Telephone',
                         labelText: 'Telephone',
+                        hintText: 'Type your telephone',
                         prefixIcon: Icons.phone,
-                        obscureText: false,
                         onChanged: (value) {
                           _telephone = value;
                         },

@@ -44,11 +44,10 @@ class _LoginPageState extends State<LoginPage> {
                     height: Responsivity.automatic(20, mediaQueryData),
                   ),
                   TextFieldWidget(
-                    hintText: 'E-mail',
                     labelText: 'E-mail',
+                    hintText: 'Type your e-mail',
                     prefixIcon: Icons.person,
                     keyboardType: TextInputType.emailAddress,
-                    obscureText: false,
                     // onChanged: (value) {
                     //   // TODO: Estudar
                     //   _userEmail = value;
@@ -67,8 +66,8 @@ class _LoginPageState extends State<LoginPage> {
                     height: Responsivity.automatic(20, mediaQueryData),
                   ),
                   TextFieldWidget(
-                    hintText: 'Password',
                     labelText: 'Password',
+                    hintText: 'Type your password',
                     prefixIcon: Icons.lock,
                     suffixIcon: Icons.visibility,
                     obscureText: true, // TODO: Verificar se está correto
