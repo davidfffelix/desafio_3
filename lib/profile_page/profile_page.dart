@@ -36,7 +36,8 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Scaffold(
         backgroundColor: const Color(0xffFAFBFB),
         appBar: AppBarWidget(
-          appBarColor: const Color(0xffFAFBFB),
+          appBarColor: Theme.of(context).appBarTheme.backgroundColor!,
+          // TODO: Está certo
           leading: GestureDetector(
             child: const Icon(
               Icons.arrow_back,

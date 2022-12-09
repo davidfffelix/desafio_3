@@ -68,7 +68,6 @@ class _LoginPageState extends State<LoginPage> {
                     suffixIcon: Icons.visibility,
                     obscureText: true,
                     validator: (value) {
-                      // Verifica se o valor é válido
                       return Validators.passwordValidator(
                         password: value,
                       );
@@ -115,7 +114,6 @@ class _LoginPageState extends State<LoginPage> {
                               ..onTap = () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    // builder: (context) => const RegisterPage(),
                                     builder: (context) => const RegisterPage(),
                                   ),
                                 );

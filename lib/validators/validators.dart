@@ -2,7 +2,7 @@ class Validators {
   static String? nameValidator({
     String? name,
   }) {
-    if (name!.isEmpty || !RegExp('[a-z A-Z]{10}').hasMatch(name)) {
+    if (name!.isEmpty || !RegExp('[a-z A-Z]{3}').hasMatch(name)) {
       return 'Enter correct name';
     } else {
       return null;
@@ -16,7 +16,7 @@ class Validators {
       return 'Please enter your email address';
     }
     // if (!RegExp(r'\S+@\S+.\S+').hasMatch(email)) {
-    if (!RegExp("[a-z 0-9 _]+@[a-z]+[.][a-z]+([.][a-z]+)?").hasMatch(email)) {
+    if (!RegExp(r"[\w\d_\.]+@[\w]+\.((com)|(gov)|(net)).*").hasMatch(email)) {
       return 'Please enter a valid email address';
     }
     return null;
@@ -38,7 +38,7 @@ class Validators {
     String? cpf,
   }) {
     if (cpf!.isEmpty ||
-        !RegExp("[0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}").hasMatch(cpf)) {
+        !RegExp(r"[\d]{3}[.]?[\d]{3}[.]?[\d]{3}[-]?[\d]{2}").hasMatch(cpf)) {
       return 'Enter correct CPF';
     } else {
       return null;
