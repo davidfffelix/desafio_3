@@ -102,10 +102,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         validator: (value) => Validators.nameValidator(
                           name: value,
                         ),
-                        onChanged: (value) {
-                          formKey.currentState?.validate();
-                          _userEmail = value;
-                        },
                       ),
                       SizedBox(
                         height: Responsivity.automatic(28, mediaQueryData),
@@ -121,9 +117,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         hintText: 'Type your e-mail',
                         prefixIcon: Icons.email,
                         keyboardType: TextInputType.emailAddress,
-                        onChanged: (value) {
-                          _userEmail = value;
-                        },
                         validator: (value) {
                           return Validators.emailValidator(
                             email: value,
@@ -145,9 +138,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         prefixIcon: Icons.lock,
                         suffixIcon: Icons.visibility,
                         obscureText: true,
-                        onChanged: (value) {
-                          _password = value;
-                        },
                         validator: (value) {
                           return Validators.passwordValidator(
                             password: value,
@@ -159,16 +149,19 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       ConfirmButtonWidget(
                         titleButton: 'Sign Up',
-                        onPressed: () {},
+                        onPressed: () {
+                          final isValid = formKey.currentState!.validate();
+                          if (isValid == false) {
+                            return;
+                          }
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ProfilePage(),
+                            ),
+                          );
+                        },
                       ),
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const ProfilePage(),
-                      //   ),
-                      // );
-                      // },
-                      // titleButton: 'Sign Up',
                     ],
                   ),
                 ),

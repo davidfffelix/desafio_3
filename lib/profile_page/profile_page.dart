@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import '../core/countries.dart';
 import '../core/image_picker/picker_image.dart';
 import '../home/register_page.dart';
+import '../login/login_page.dart';
 import '../validators/validators.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -88,11 +89,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         labelText: 'Name',
                         hintText: 'Type your name',
                         prefixIcon: Icons.person,
-                        onChanged: (value) {
-                          formKey.currentState?.validate();
-                          // Faz com que as validações funcionem
-                          _userEmail = value;
-                        },
                         validator: (value) {
                           return Validators.nameValidator(
                             name: value,
@@ -112,9 +108,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         labelText: 'CPF',
                         hintText: 'Type your CPF',
                         prefixIcon: Icons.person,
-                        onChanged: (value) {
-                          _userEmail = value;
-                        },
                         validator: (value) {
                           return Validators.cpfValidator(
                             cpf: value,
@@ -134,9 +127,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         labelText: 'Telephone',
                         hintText: 'Type your telephone',
                         prefixIcon: Icons.phone,
-                        onChanged: (value) {
-                          _telephone = value;
-                        },
                         validator: (value) {
                           return Validators.telephoneValidator(
                             telephone: value,
@@ -178,15 +168,19 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: Responsivity.automatic(90, mediaQueryData),
                       ),
                       ConfirmButtonWidget(
+                        titleButton: 'Confirm',
                         onPressed: () {
+                          final isValid = formKey.currentState!.validate();
+                          if (isValid == false) {
+                            return;
+                          }
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegisterPage(),
+                              builder: (context) => const LoginPage(),
                             ),
                           );
                         },
-                        titleButton: 'Confirm',
                       ),
                     ],
                   ),

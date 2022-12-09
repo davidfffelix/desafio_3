@@ -1,9 +1,9 @@
-import 'package:desafio_3/profile_page/profile_page.dart';
 import 'package:design_system/design_system.dart';
 import 'package:design_system/responsivity.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../home/register_page.dart';
 import '../validators/validators.dart';
 
 class LoginPage extends StatefulWidget {
@@ -48,10 +48,6 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: 'Type your e-mail',
                     prefixIcon: Icons.person,
                     keyboardType: TextInputType.emailAddress,
-                    // onChanged: (value) {
-                    //   // TODO: Estudar
-                    //   _userEmail = value;
-                    // },
                     validator: (value) {
                       return Validators.emailValidator(
                         email: value,
@@ -70,10 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: 'Type your password',
                     prefixIcon: Icons.lock,
                     suffixIcon: Icons.visibility,
-                    obscureText: true, // TODO: Verificar se está correto
-                    // onChanged: (value) {
-                    //   _password = value;
-                    // },
+                    obscureText: true,
                     validator: (value) {
                       // Verifica se o valor é válido
                       return Validators.passwordValidator(
@@ -88,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: Responsivity.automatic(30, mediaQueryData),
                   ),
                   ConfirmButtonWidget(
-                    // TODO: Daniel ensinou
+                    titleButton: 'Sign In',
                     onPressed: () {
                       final isValid = formKey.currentState!.validate();
                       if (isValid == false) {
@@ -101,7 +94,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       );
                     },
-                    titleButton: 'Sign In',
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -124,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     // builder: (context) => const RegisterPage(),
-                                    builder: (context) => const ProfilePage(),
+                                    builder: (context) => const RegisterPage(),
                                   ),
                                 );
                               },
