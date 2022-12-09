@@ -1,4 +1,27 @@
 class Validators {
+  static String? nameValidator({
+    String? name,
+  }) {
+    if (name!.isEmpty || !RegExp('[a-z A-Z]{10}').hasMatch(name)) {
+      return 'Enter correct name';
+    } else {
+      return null;
+    }
+  }
+
+  static String? emailValidator({
+    String? email,
+  }) {
+    if (email == null || email.trim().isEmpty) {
+      return 'Please enter your email address';
+    }
+    // if (!RegExp(r'\S+@\S+.\S+').hasMatch(email)) {
+    if (!RegExp("[a-z 0-9 _]+@[a-z]+[.][a-z]+([.][a-z]+)?").hasMatch(email)) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
+
   static String? passwordValidator({
     String? password,
   }) {
@@ -9,28 +32,6 @@ class Validators {
       return 'Password must be at least 6 characters in length';
     }
     return null;
-  }
-
-  static String? emailValidator({
-    String? email,
-  }) {
-    if (email == null || email.trim().isEmpty) {
-      return 'Please enter your email address';
-    }
-    if (!RegExp(r'\S+@\S+.\S+').hasMatch(email)) {
-      return 'Please enter a valid email address';
-    }
-    return null;
-  }
-
-  static String? nameValidator({
-    String? name,
-  }) {
-    if (name!.isEmpty || !RegExp('[a-z A-Z]{10}').hasMatch(name)) {
-      return 'Enter correct name';
-    } else {
-      return null;
-    }
   }
 
   static String? cpfValidator({
