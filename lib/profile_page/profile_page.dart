@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:design_system/design_system.dart';
 import 'package:design_system/responsivity.dart';
+import 'package:design_system/theme/components/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../core/countries.dart';
@@ -54,10 +55,13 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HeaderWidget(
+              HeaderWidget(
                 firstRow: '😎 Setting up your \nprofile',
                 secondRow: Text(
                   'Add your profile photo',
+                  style: TextStyle(
+                    color: AppColors.grey,
+                  ),
                 ),
               ),
               DefaultPaddingWidget(
