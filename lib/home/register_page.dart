@@ -1,5 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:design_system/responsivity.dart';
+import 'package:design_system/theme/components/app_colors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../login/login_page.dart';
@@ -27,13 +28,13 @@ class _RegisterPageState extends State<RegisterPage> {
 
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: const Color(0xffFAFBFB),
-
+        backgroundColor: const Color(0xffFAFBFB),
         appBar: AppBarWidget(
-          appBarColor: const Color(0xffFAFBFB),
+          appBarColor: Theme.of(context).appBarTheme.backgroundColor!,
           leading: GestureDetector(
-            child: const Icon(
+            child: Icon(
               Icons.arrow_back,
+              color: Theme.of(context).appBarTheme.iconTheme!.color,
             ),
             onTap: () {
               Navigator.of(context).push(
@@ -52,12 +53,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 firstRow: '👋 Hello, \n Are you new there?',
                 secondRow: Row(
                   children: [
-                    const Text(
+                    Text(
                       'if you have an account /',
                       style: TextStyle(
-                        color: Color(0xffD5D4D5),
-                        // color: Theme.of(context).backgroundColor,
-                        // style: DefaultTheme().defaultTheme.textTheme.bodyLarge
+                        color: AppColors.grey,
                       ),
                     ),
                     Text.rich(

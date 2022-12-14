@@ -35,12 +35,13 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffFAFBFB),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBarWidget(
           appBarColor: Theme.of(context).appBarTheme.backgroundColor!,
           leading: GestureDetector(
-            child: const Icon(
+            child: Icon(
               Icons.arrow_back,
+              color: Theme.of(context).appBarTheme.iconTheme!.color,
             ),
             onTap: () {
               Navigator.of(context).push(
