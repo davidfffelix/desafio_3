@@ -88,7 +88,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        labelText: 'Name',
+                        // labelText: 'Name',
                         hintText: 'Type your name',
                         prefixIcon: Icons.person,
                         validator: (value) {
@@ -107,7 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        labelText: 'CPF',
+                        // labelText: 'CPF',
                         hintText: 'Type your CPF',
                         prefixIcon: Icons.person,
                         validator: (value) {
@@ -126,7 +126,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        labelText: 'Telephone',
+                        // labelText: 'Telephone',
                         hintText: 'Type your telephone',
                         prefixIcon: Icons.phone,
                         validator: (value) {
@@ -148,6 +148,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         onChanged: (country) {
                           selectedCountry = country;
                         },
+                        validator: (value) {
+                          return Validators.countryValidator(
+                            country: value,
+                          );
+                        }, // TODO: Revisar!
                         items: countries.map(
                           (country) {
                             return DropdownMenuItem(

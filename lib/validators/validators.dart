@@ -1,3 +1,5 @@
+import 'package:desafio_3/core/countries.dart';
+
 class Validators {
   static String? nameValidator({
     String? name,
@@ -55,5 +57,13 @@ class Validators {
       return 'Please enter your telephone correct';
     }
     return null;
+  }
+
+  static String? countryValidator({
+    Country? country,
+  }) {
+    if (country == null) {
+      return 'Please select a country';
+    }
   }
 }

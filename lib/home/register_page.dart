@@ -95,7 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        labelText: 'Name',
+                        // labelText: 'Name',
                         hintText: 'Type your name',
                         prefixIcon: Icons.person,
                         validator: (value) => Validators.nameValidator(
@@ -112,7 +112,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        labelText: 'E-mail',
+                        // labelText: 'E-mail',
                         hintText: 'Type your e-mail',
                         prefixIcon: Icons.email,
                         keyboardType: TextInputType.emailAddress,
@@ -132,7 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: Responsivity.automatic(20, mediaQueryData),
                       ),
                       TextFieldWidget(
-                        labelText: 'Password',
+                        // labelText: 'Password',
                         hintText: 'Type your password',
                         prefixIcon: Icons.lock,
                         suffixIcon: Icons.visibility,
